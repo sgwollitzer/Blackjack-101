@@ -24,6 +24,8 @@ const CountingCards = () => {
     <p>Positive counts = more low cards in the deck</p>
     <p>Negative counts = more higher cards in the deck</p>
     {/* https://www.wikihow.com/Count-Cards-in-Blackjack */}
+    <h2>Want to Learn More?</h2>
+    <p>Here are some great books to check out:</p>
     </>
   )
   ;
