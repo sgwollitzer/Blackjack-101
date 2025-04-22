@@ -7,7 +7,7 @@ import CountingCards from './pages/countingCards'
 import History from './pages/history'
 import Simulator from './pages/simulator'
 
-const App = () => {
+function App ()  {
   return (
     <Router>
       <Navbar />
