@@ -1,7 +1,11 @@
 import React from 'react';
 
 const CountingCards = () => {
-  return <h1>counting cards</h1>;
+  return (<h1>Counting Cards: Learn Two Strategies</h1>
+    
+  )
+  ;
+
 };
 
 export default CountingCards;
