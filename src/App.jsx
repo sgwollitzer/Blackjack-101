@@ -1,34 +1,26 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import wustlLogo from './assets/wustl.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import CasinoInfo from './pages/casinoInfo'
+import CountingCards from './pages/countingCards'
+import History from './pages/history'
+import Simulator from './pages/simulator'
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://wustl.edu" target="_blank" rel="noreferrer">
-          <img src={wustlLogo} className="logo wustl" alt="WUSTL logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>WUSTL + Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the WUSTL, Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/casinoInfo" element={<CasinoInfo />} />
+        <Route path="/countingCards" element={<CountingCards />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/simulator" element={<Simulator />} />
 
-export default App
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
