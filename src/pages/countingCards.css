@@ -12,6 +12,7 @@
     text-decoration: underline;
     text-decoration-color: var(--m-red);
     text-align:center;
+    margin-bottom:3rem;
   }
   .rulesection{
     width:80%;

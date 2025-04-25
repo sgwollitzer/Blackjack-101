@@ -1,20 +1,89 @@
 import React from 'react';
+import arrowdown from '../images/arrowdown.png';
+import './casinoInfo.css';
+import aria from '../images/aria.jpg';
+import excalibur from '../images/excalibur.jpg';
+import foxwoods from '../images/foxwoods.jpg';
+import luxor from '../images/luxor.jpg';
+import mandalay from '../images/mandalay.jpg';
+import mgm from '../images/mgm.jpg';
+import venetian from '../images/venetian.jpg';
+import winstar from '../images/winstar.jpg';
+
+
 
 const CasinoInfo = () => {
   return (
     <>
-  <h1 className="titleH">Top Casinos for Blackjack</h1>
-  <h2>Aria</h2>
-  <h2>WinStar World Casino</h2>
-  <h2>Venetian Macau</h2>
-  <h2>Foxwoods Casino</h2>
-  <h2>Excalibur</h2>
-  <h2>MGM Grand</h2>
-  <h2>Luxor Casino</h2>
-  <h2>Mandalay Bay</h2>
+    <div className="centered">
+  <h1 className="big">Top Casinos for Blackjack</h1>
+  <a href="#casino-section">
+  <img
+    className="arrowdownimg"
+    src={arrowdown}
+    alt="scroll down to casino section"
+  />
+</a>
+    </div>
+    <div id="casino-section">
+  <h1  className="big">Aria</h1>
+  <img
+    className="bigimg"
+    src={aria}
+    alt="aria casino"
+  />
+  <h1  className="big">WinStar World Casino</h1>
+  <img
+    className="bigimg"
+    src={winstar}
+    alt="winstar world casino"
+  />
+  <h1  className="big">Venetian Macau</h1>
+  <img
+    className="bigimg"
+    src={venetian}
+    alt="venetian macau casino"
+  />
+  <h1  className="big">Foxwoods Casino</h1>
+  <img
+    className="bigimg"
+    src={foxwoods}
+    alt="foxwoods casino"
+  />
+  <h1  className="big">Excalibur</h1>
+  <img
+    className="bigimg"
+    src={excalibur}
+    alt="excalibur casino"
+  />
+  <h1 className="big">MGM Grand</h1>
+  <img
+    className="bigimg"
+    src={mgm}
+    alt="mgm grand casino"
+  />
+  <h1 className="big">Luxor Casino</h1>
+  <img
+    className="bigimg"
+    src={luxor}
+    alt="luxor casino"
+  />
+  <h1  className="big">Mandalay Bay</h1>
+  <img
+    className="bigimg"
+    src={mandalay}
+    alt="mandalay bay casino"
+  />
   {/* https://vitamagazine.com/2024/06/09/blackjack-bliss-exploring-the-top-casinos-worldwide-for-blackjack-enthusiasts/ */}
-  <h3>Want to find a casino? Click here to see a running list of casinos in the US that offer blackjack</h3>
+ 
   {/* https://www.blackjackhero.com/blackjack/casinos/ */}
+  <div className="redborder">
+  <a
+  href="https://www.blackjackhero.com/blackjack/casinos/"
+  target="_blank"
+>Want to find a casino? Click here to see a running list of casinos in the US that offer blackjack</a>
+  </div>
+  </div>
 </>
   );
 };

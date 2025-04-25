@@ -1,0 +1,30 @@
+.arrowdownimg{
+    width: 100%; 
+    max-width: 100px; 
+}
+.centered{
+display: flex;
+  justify-content: center; 
+  align-items: center;   
+  flex-direction:column;
+  height:80vh;
+ 
+}
+.big{
+    flex:0;
+}
+.bigimg{
+    width:100%;
+    max-width:100%;
+    height: auto;
+}
+.redborder{
+    padding:1rem;
+    margin-bottom:3rem;
+    margin-top:3rem;
+    width:80%;
+    margin-right:auto;
+    margin-left:auto;
+    border:2px solid var(--m-red);
+    border-radius:10px;
+}
