@@ -1,0 +1,14 @@
+h2{
+    border:2px solid var(--m-red);
+border-radius:10px;
+  }
+ 
+  .rulesection{
+width:80%;
+margin:0 auto 5rem auto;
+line-height:1.5;
+  }
+  #titleH{
+    margin:5rem;
+    text-align:center;
+  }
