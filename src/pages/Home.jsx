@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return( 
-  <><h1>Our Vision: teach you everything you need to know about blackjac</h1>
+  <><h1>Our Vision: teach you everything you need to know about blackjack</h1>
   <div>
       <h2>Why play blackjack?</h2>
       <p> stats</p>
@@ -17,7 +17,8 @@ const Home = () => {
     </div>
     <div>
       <h2>Rules of Blackjack:</h2>
-      <h3>Objective: try to beat the dealer by getting a count of cards as close to 21 as possible without going over</h3>
+      <h3>Objective: </h3>
+      <p>try to beat the dealer by getting a count of cards as close to 21 as possible without going over</p>
       <h3>Card Values: Ace is valued at 11 unless that would caues a bust. If it would cause a bust, the ace is valued as a 1. Face cards are worth 10 and number cards are worth their numbers</h3>
       <h3>Betting: betting occurs before the cards are dealed</h3>
       <h3>Play:</h3>

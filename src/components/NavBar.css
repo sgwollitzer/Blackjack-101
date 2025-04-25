@@ -1,0 +1,48 @@
+:root {
+    --m-light-gray: rgb(243, 243, 243);
+  }
+  *{
+    margin:0;
+    box-sizing:border-box;
+}
+#playing-cards-img{
+    width:2.5rem;
+    height:2.5rem;
+   
+}
+a {
+    text-decoration:none;
+    color:black;
+  }
+  a:hover{
+    color:red;
+  }
+#cards-nav-circ{
+    background-color:var(--m-light-gray);
+    width:3.5rem;
+    height:3.5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+body{
+    font-family:'Metamorphous', sans-serif;
+}
+#main-nav{
+    display:flex;
+    background-color:var(--m-light-gray);
+    border-radius: 10px;
+    height:3rem;
+    width:50%;
+    justify-content: center;
+    align-items: center;
+    gap:4rem;
+}
+nav{
+    display:flex;
+    justify-content: center;
+    gap:3rem;
+    align-items:center;
+    margin-top:30px;
+}
