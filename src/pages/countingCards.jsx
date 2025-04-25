@@ -12,14 +12,14 @@ const CountingCards = () => {
   <h1 className="titleCC">Counting Cards: Learn Two Strategies</h1>
   <p className="red-underline">*Disclaimer* Casinos have methods in place to catch players that card count. Card count at your own discretion.</p>
     <div className="rulesection">
-    <h2>Hi-Lo</h2>
+    <h2 className="h2T">Hi-Lo</h2>
     <ol>
       <li>Bet at least 200 times the minimum bet</li>
       <li>Keep a counter starting at 0 of any card you see. Add 1 to the counter for every 2, 3, 4, 5, or 6 you see. Subtract 1 for every 10, Jack, Queen, King, or Ace you see</li>
       <li>Keep track of true count: counter divided by number of decks in use</li>
       <li>Every round, bet the true count - 1 times the betting unit</li>
     </ol>
-    <h2>Omega II</h2>
+    <h2 className="h2T">Omega II</h2>
     <p>Follow the same steps as Hi-Lo, except:</p>
     <ol>
       <li>cards of value 2, 3, or 7 count as +1</li>

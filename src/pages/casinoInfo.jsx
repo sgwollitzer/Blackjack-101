@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { animate, inView } from 'motion';
+
 import arrowdown from '../images/arrowdown.png';
 import './casinoInfo.css';
 import aria from '../images/aria.jpg';
@@ -13,6 +15,27 @@ import winstar from '../images/winstar.jpg';
 
 
 const CasinoInfo = () => {
+   useEffect(() => {
+      inView(".scrolling pre", (element) => {
+        animate(
+            element,
+            { opacity: 1, x: [-100, 0] },
+            {duration: 0.9,}
+        )
+        return () => animate(element, { opacity: 0, x: -100 })
+      });
+    }, []);
+    useEffect(() => {
+      inView(".scrollingRight pre", (element) => {
+        animate(
+            element,
+            { opacity: 1, x: [100, 0] },
+            {duration: 0.9,}
+        )
+        return () => animate(element, { opacity: 0, x: 100 })
+      });
+    }, []);
+    // https://examples.motion.dev/js/scroll-triggered
   return (
     <>
     <div className="centered">
@@ -25,55 +48,110 @@ const CasinoInfo = () => {
   />
 </a>
     </div>
+    
     <div id="casino-section">
-  <h1  className="big">Aria</h1>
+
+    <section className="scrolling">
+
+  <pre><h1  className="big">Aria</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={aria}
     alt="aria casino"
   />
-  <h1  className="big">WinStar World Casino</h1>
+  </pre>
+  </section>
+   <section className="scrolling">
+  <pre><h1  className="big">WinStar World Casino</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={winstar}
     alt="winstar world casino"
   />
-  <h1  className="big">Venetian Macau</h1>
+  </pre>
+  </section>
+   <section className="scrolling">
+ <pre> <h1  className="big">Venetian Macau</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={venetian}
     alt="venetian macau casino"
   />
-  <h1  className="big">Foxwoods Casino</h1>
+  </pre>
+  </section>
+   <section className="scrolling">
+
+  <pre><h1  className="big">Foxwoods Casino</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={foxwoods}
     alt="foxwoods casino"
   />
-  <h1  className="big">Excalibur</h1>
+  </pre>
+  </section>
+ <section className="scrolling">
+  <pre><h1  className="big">Excalibur</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={excalibur}
     alt="excalibur casino"
   />
-  <h1 className="big">MGM Grand</h1>
+  </pre>
+  </section>
+   <section className="scrolling">
+  <pre><h1 className="big">MGM Grand</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={mgm}
     alt="mgm grand casino"
   />
-  <h1 className="big">Luxor Casino</h1>
+  </pre>
+  </section>
+     <section className="scrolling">
+
+  <pre><h1 className="big">Luxor Casino</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={luxor}
     alt="luxor casino"
   />
-  <h1  className="big">Mandalay Bay</h1>
+  </pre>
+  </section>
+       <section className="scrolling">
+
+       <pre><h1  className="big">Mandalay Bay</h1></pre>
+  </section>
+  <section className="scrollingRight">
+<pre>
   <img
     className="bigimg"
     src={mandalay}
     alt="mandalay bay casino"
   />
+  </pre>
+  </section>
+  
   {/* https://vitamagazine.com/2024/06/09/blackjack-bliss-exploring-the-top-casinos-worldwide-for-blackjack-enthusiasts/ */}
  
   {/* https://www.blackjackhero.com/blackjack/casinos/ */}
