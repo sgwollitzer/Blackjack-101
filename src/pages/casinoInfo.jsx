@@ -3,7 +3,7 @@ import React from 'react';
 const CasinoInfo = () => {
   return (
     <>
-  <h1>Top Casinos for Blackjack</h1>
+  <h1 className="titleH">Top Casinos for Blackjack</h1>
   <h2>Aria</h2>
   <h2>WinStar World Casino</h2>
   <h2>Venetian Macau</h2>

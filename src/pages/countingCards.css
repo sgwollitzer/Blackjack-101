@@ -1,0 +1,42 @@
+:root {
+    --m-light-gray: rgb(243, 243, 243);
+    --m-red:rgb(155,35,37);
+    --m-green:rgb(36, 78, 41);
+  }
+.titleCC{
+    margin-top:5rem;
+    text-align:center;
+  }
+  .red-underline {
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: var(--m-red);
+    text-align:center;
+  }
+  .rulesection{
+    width:80%;
+    margin:5rem auto 5rem auto;
+    line-height:1.5;
+      }
+      .bookimg{
+        width: 100%; 
+        max-width: 100px; 
+        height: auto;
+
+      }
+.borderimg{
+    border: 2px solid var(--m-green);
+    border-radius:10px;
+    padding:0.5rem;
+    width:100%;
+    max-width:120px;
+    display:flex;
+    justify-content: center; /* centers horizontally */
+  align-items: center; 
+}
+#borderbooks{
+    margin-top:1rem;
+    display:flex;
+    justify-content: center;
+    gap:3rem;
+}

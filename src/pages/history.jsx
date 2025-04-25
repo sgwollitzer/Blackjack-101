@@ -4,7 +4,7 @@ import './history.css';
 const History = () => {
   return (
     <>
-  <h1 id="titleH">History of Blackjack</h1>
+  <h1 className="titleH">History of Blackjack</h1>
   <div className="rulesection">
   <h2>Origins</h2>
   <ul>

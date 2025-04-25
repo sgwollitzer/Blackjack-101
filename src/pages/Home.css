@@ -5,7 +5,10 @@
   }
 .first-section{
     display:flex;
-    margin:5rem;
+    margin-left:5rem;
+    margin-right:5rem;
+    margin-bottom:5rem;
+    margin-top:1rem;
     gap:3rem;
 }
 .big{
@@ -13,7 +16,7 @@
     text-align: center;
     flex:1;
     line-height:1.5;
-    /* margin-top:3rem; */
+     margin-top:3rem; 
 }
 .section{
     flex:1;
