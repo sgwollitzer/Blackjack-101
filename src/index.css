@@ -4,3 +4,11 @@ p {
 h1,h2,h3{
     font-family:'Metamorphous', sans-serif;
 }
+
+  body{
+    background-color:#FFFAFA;
+  }
+  *{
+    margin:0;
+    box-sizing:border-box;
+}

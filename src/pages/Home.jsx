@@ -1,26 +1,30 @@
 import React from 'react';
+import './Home.css';
+import playingcardswhiteimg from '../images/playingcardswhite.jpg';
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
   return( 
-  <><h1>Our Vision: teach you everything you need to know about blackjack</h1>
-  <div>
-      <h2>Why play blackjack?</h2>
-      <p> stats</p>
-      <p>Click here to learn more about how blackjack came to be</p>
-    </div>
-    <div>
-      <h2>Want to know how to actually make money playing blackjack in casinos?</h2>
-      <p>Click here to learn the stategy that'll increase your odds</p>
-    </div>
-    <div>
-      <h2>Curious about where blackjack is played the most? click here</h2>
-    </div>
-    <div>
+  <>
+  <div className="first-section">
+  <div className="big section">
+  <h1>Welcome to Blackjack</h1>
+  <img
+        id="playing-cards-img2"
+          src={playingcardswhiteimg}
+          alt="playing cards"
+          
+        />
+  </div>
+  <div className="section rulesection">
       <h2>Rules of Blackjack:</h2>
       <h3>Objective: </h3>
-      <p>try to beat the dealer by getting a count of cards as close to 21 as possible without going over</p>
-      <h3>Card Values: Ace is valued at 11 unless that would caues a bust. If it would cause a bust, the ace is valued as a 1. Face cards are worth 10 and number cards are worth their numbers</h3>
-      <h3>Betting: betting occurs before the cards are dealed</h3>
+      <p>Try to beat the dealer by getting a count of cards as close to 21 as possible without going over</p>
+      <h3>Card Values:</h3>
+      <p> Ace is valued at 11 unless that would caues a bust. If it would cause a bust, the ace is valued as a 1. Face cards are worth 10 and number cards are worth their numbers</p>
+      <h3>Betting:</h3>
+      <p> betting occurs before the cards are dealed</p>
       <h3>Play:</h3>
       <p>The dealer will give one card face up to each player including themself. This is repeated, except the dealer's second card will be face down.</p>
       {/* https://bicyclecards.com/how-to-play/blackjack */}
@@ -40,9 +44,28 @@ const Home = () => {
       <h3>Insurance</h3>
       <p>If a dealer shows an ace, the player can place a bet worth up to half of the player's current bet that the dealer has a blackjack. Insurance bets must be placed before any players play. If the dealer has a blackjack, the player receives back double the original insurance bet.</p>
     </div>
-    <div>
-      <h2>Play Blackjack here!</h2>
-      <p>click to play</p>
+    </div>
+    <div className="second-section">
+  <div className="card">
+  <h2>History</h2>
+  <div className="button">
+          <Link className="black" to="/history">Click here to learn more about how blackjack came to be</Link></div>
+    </div>
+    <div className="card">
+    <h2>Counting Cards</h2>
+    <div className="button">
+            <Link className="black"to="/countingCards">Want to know how to actually make money playing blackjack in casinos? Click here to learn the stategy that'll increase your odds</Link></div>
+    </div>
+    <div className="card">
+    
+    <h2>Casino Info</h2>
+    <div className="button">
+            <Link className="black" to="/casinoInfo">Curious about where blackjack is played the most? Click Here</Link></div>
+    </div>
+    </div>
+    <div className="third-section ">
+      <h1>Play Blackjack Now!</h1>
+      <Link className="border" to="/simulator">Click to Play the Simulator</Link>
     </div>
     </>
 

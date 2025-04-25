@@ -18,14 +18,16 @@ const Navbar = () => {
       </div>
       <div id="main-nav">
       <div >
-        <Link to="/casinoInfo">Casino Info</Link>
+        <Link to="/history">History</Link>
       </div>
       <div >
         <Link to="/countingCards">Counting Cards</Link>
       </div>
       <div >
-        <Link to="/history">History</Link>
+        <Link to="/casinoInfo">Casino Info</Link>
       </div>
+      
+      
       <div >
         <Link to="/simulator">Simulator</Link>
       </div>
