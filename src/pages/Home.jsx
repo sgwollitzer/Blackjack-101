@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import playingcardswhiteimg from '../images/playingcardswhite.jpg';
 import { Link } from 'react-router-dom';
-
+import { motion } from "framer-motion";
 
 const Home = () => {
   return( 
@@ -48,24 +48,26 @@ const Home = () => {
     <div className="second-section">
   <div className="card">
   <h2>History</h2>
-  <div className="button">
-          <Link className="black" to="/history">Click here to learn more about how blackjack came to be</Link></div>
+  <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
+  <Link className="black" to="/history">Click here to learn more about how blackjack came to be</Link></motion.div>
     </div>
     <div className="card">
     <h2>Counting Cards</h2>
-    <div className="button">
-            <Link className="black"to="/countingCards">Want to know how to actually make money playing blackjack in casinos? Click here to learn the stategy that'll increase your odds</Link></div>
+    <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
+
+            <Link className="black"to="/countingCards">Want to know how to actually make money playing blackjack in casinos? Click here to learn the stategy that'll increase your odds</Link></motion.div>
     </div>
     <div className="card">
     
     <h2>Casino Info</h2>
-    <div className="button">
-            <Link className="black" to="/casinoInfo">Curious about where blackjack is played the most? Click Here</Link></div>
+    <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
+            <Link className="black" to="/casinoInfo">Curious about where blackjack is played the most? Click Here</Link></motion.div>
     </div>
     </div>
     <div className="third-section ">
       <h1>Play Blackjack Now!</h1>
-      <Link className="border" to="/simulator">Click to Play the Simulator</Link>
+      <motion.a className="border" whileHover={{  borderColor: "black", backgroundColor: 'rgb(155,35,37)', color:"white" }}>
+      <Link  to="/simulator">Click to Play the Simulator</Link></motion.a>
     </div>
     </>
 

@@ -5,7 +5,7 @@ const History = () => {
   return (
     <>
   <h1 className="titleH">History of Blackjack</h1>
-  <div className="rulesection">
+  <div className="rulesection2">
   <h2 className="h2T">Origins</h2>
   <ul>
   <li>Blackjack originated in France and Spain under the name "Vingt-un" or "Vingt-et-un", meaning "21." It was predated by other games circling Europe that had goals of getting as close to a certain value as psosible, whether it be 15, 31, or 21.</li>

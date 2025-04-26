@@ -11,6 +11,7 @@ import mandalay from '../images/mandalay.jpg';
 import mgm from '../images/mgm.jpg';
 import venetian from '../images/venetian.jpg';
 import winstar from '../images/winstar.jpg';
+import { motion } from "framer-motion";
 
 
 
@@ -41,11 +42,12 @@ const CasinoInfo = () => {
     <div className="centered">
   <h1 className="big">Top Casinos for Blackjack</h1>
   <a href="#casino-section">
-  <img
-    className="arrowdownimg"
+  <motion.img className="arrowdownimg" whileHover={{scale:1.5}} transition={{ type: "spring", bounce: 0.2 }}
+
     src={arrowdown}
     alt="scroll down to casino section"
   />
+
 </a>
     </div>
     
@@ -155,12 +157,12 @@ const CasinoInfo = () => {
   {/* https://vitamagazine.com/2024/06/09/blackjack-bliss-exploring-the-top-casinos-worldwide-for-blackjack-enthusiasts/ */}
  
   {/* https://www.blackjackhero.com/blackjack/casinos/ */}
-  <div className="redborder">
+    <motion.div className="redborder" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
   <a
   href="https://www.blackjackhero.com/blackjack/casinos/"
   target="_blank"
 >Want to find a casino? Click here to see a running list of casinos in the US that offer blackjack</a>
-  </div>
+  </motion.div>
   </div>
 </>
   );

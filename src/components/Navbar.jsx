@@ -18,18 +18,18 @@ const Navbar = () => {
       </div>
       <div id="main-nav">
       <div >
-        <Link to="/history">History</Link>
+        <Link className="hover" to="/history">History</Link>
       </div>
       <div >
-        <Link to="/countingCards">Counting Cards</Link>
+        <Link className="hover" to="/countingCards">Counting Cards</Link>
       </div>
       <div >
-        <Link to="/casinoInfo">Casino Info</Link>
+        <Link className="hover" to="/casinoInfo">Casino Info</Link>
       </div>
       
       
       <div >
-        <Link to="/simulator">Simulator</Link>
+        <Link className="hover" to="/simulator">Simulator</Link>
       </div>
       </div>
     </nav>
