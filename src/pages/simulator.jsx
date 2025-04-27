@@ -17,8 +17,18 @@ const Simulator = () => {
   const [hasOriginalTwoCards, setHasOriginalTwoCards] = useState(false);
   const [stopGame, setStopGame] = useState(false);
 
+  const [houseCounter, setHouseCounter] = useState(null);
+  const [playerCounter, setPlayerCounter] = useState(null);
 
 
+  const getHouseCounter = (value) => {
+    setHouseCounter(value);
+   
+  };
+  // const getPlayerCounter = (value) => {
+  //   setPlayerCounter(value);
+   
+  // };
 
   useEffect(() => {
     console.log(deckId);
@@ -66,6 +76,15 @@ const showCards=(cards)=>{
     <img key={index} src={card.image}/>
   ));
 };
+
+useEffect(() => {
+  if (houseCounter==21) {
+    setHouseWin(oldHouseWin => oldHouseWin+1);
+  }
+  if(playerCounter==21){
+    setPlayerWin(oldPlayerWin=>oldPlayerWin+1);
+  }
+}, [houseCounter]);
 const handlePlayerPress=(action)=>{
   if(action=='new game'){
     console.log("new game");
@@ -82,6 +101,36 @@ const handlePlayerPress=(action)=>{
   //   split();
   // }
 }
+const stand=()=>{
+  const currPlayer = calculateCounter(playerCards);
+  setPlayerCounter(currPlayer);
+  console.log("house counter for player standing is:",houseCounter);
+  if(houseCounter==0){
+    setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
+    alert("you won");
+    console.log("deciding winners","player counter",currPlayer,"house:",houseCounter);
+  }
+  
+  //why is playerCounter always printing out as null?
+  else if(houseCounter==21 && currPlayer!=21){
+    alert("you lost");
+    setHouseWin(oldHouseWin => oldHouseWin + 1);
+  } else if(currPlayer==21 && houseCounter!=21){
+    setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
+    alert("you won");
+  } else if(houseCounter == currPlayer){
+    alert("tie");
+    setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
+    setHouseWin(oldHouseWin => oldHouseWin + 1);
+  } else if(houseCounter>currPlayer){
+    alert("you lost");
+    setHouseWin(oldHouseWin => oldHouseWin + 1);
+  } else if(currPlayer>houseCounter){
+    setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
+    alert("you won");
+  }
+}
+
 
 const newGame=async()=>{
 setDeckId(null);
@@ -128,6 +177,7 @@ const calculateCounter=(cards)=>{
 }
 const hit=async ()=>{
   const currCounter=calculateCounter(playerCards);
+  setPlayerCounter(currCounter);
   if(currCounter<21){
   try{
     let drawnPlayerCard=await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
@@ -153,13 +203,17 @@ useEffect(() => {
   return (
     <>
   <h1>simulator</h1>
+  <h3>House Counter: {houseCounter}</h3>
+  <h3>Player Counter: {playerCounter}</h3>
+
   <h2>House wins: {houseWin}</h2>
+
   <h2>Player wins: {playerWin}</h2>
-  <House cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards}/>
+  <House cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards} setHouseCounter={getHouseCounter}/>
       <div className="deck">
         <p>Deck of Cards</p>
       </div>
-      <Player cards={playerCards} playerPress={handlePlayerPress} />
+      <Player cards={playerCards} playerPress={handlePlayerPress}  />
       {/* <Buttons /> */}
       {/* <h2>house cards:</h2>
       <div>{showCards(houseCards)}</div> */}

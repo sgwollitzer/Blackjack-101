@@ -1,12 +1,14 @@
 import React,{ useState, useEffect }  from 'react';
 import axios from 'axios';
 
-const House = ({cards,deckId, resetHasOriginalTwoCards}) => {
+const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
     const [houseCards, setHouseCards] = useState(cards);
     const [stopGame,setStopGame]=useState(false);
     const [counter,setCounter]=useState(0);
     const [hasOriginalTwoCards, setHasOriginalTwoCards] = useState(false);
-
+    // const setter = (value) => {
+    //     return value;
+    //   };
 
     const calculateCounter=(cards)=>{
         let currCounter=0;
@@ -48,13 +50,16 @@ const House = ({cards,deckId, resetHasOriginalTwoCards}) => {
             }
             setHouseCards(currHouseCards);
             setCounter(currCounter);
+            setHouseCounter(currCounter);
             
             
         }
         if(currCounter>21){
                // gameResult('bust');
+               setHouseCounter(0); //0=bust
                console.log("bust");
             } else{
+                setHouseCounter(currCounter);
                 //gameResult('not bust');
                 console.log("not bust");
             }
