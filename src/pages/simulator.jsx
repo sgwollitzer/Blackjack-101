@@ -1,6 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './simulator.css';
-import { animate, inView } from 'motion';
+import House from './elements/House';
+import Player from './elements/Player';
+import Buttons from './elements/Buttons';
+
 
 
 const Simulator = () => {
@@ -8,6 +11,12 @@ const Simulator = () => {
   return (
     <>
   <h1>simulator</h1>
+  <House />
+      <div className="deck">
+        <p>Deck of Cards</p>
+      </div>
+      <Player />
+      <Buttons />
   
 </>
   );
