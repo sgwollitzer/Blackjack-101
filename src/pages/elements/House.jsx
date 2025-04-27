@@ -1,9 +1,12 @@
-import React from 'react';
+import React,{ useState, useEffect }  from 'react';
+import axios from 'axios';
 
-const House = ({cards,deckId}) => {
+const House = ({cards,deckId, resetHasOriginalTwoCards}) => {
     const [houseCards, setHouseCards] = useState(cards);
     const [stopGame,setStopGame]=useState(false);
     const [counter,setCounter]=useState(0);
+    const [hasOriginalTwoCards, setHasOriginalTwoCards] = useState(false);
+
 
     const calculateCounter=(cards)=>{
         let currCounter=0;
@@ -14,12 +17,12 @@ const House = ({cards,deckId}) => {
             } else if(card.value=='ACE'){
                 aces++;
             }else{
-                currCounter+=card.value;
+                currCounter+=parseInt(card.value, 10);
             }
             if(aces!=0){
                 currCounter+=11;
                 if(currCounter>21){
-                    total-=10;
+                    currCounter-=10;
                 }
             }
         }
@@ -28,8 +31,11 @@ const House = ({cards,deckId}) => {
     }
     const drawCards=async()=>{
         let currHouseCards=[...houseCards];
+        console.log("House cards before drawing more:", currHouseCards);
         let currCounter=calculateCounter(currHouseCards);
+        console.log("currCounter",currCounter);
         while (currCounter<17){
+            console.log("is this happening");
             try{
                 let drawnCard = await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
                 console.log("drawn card", drawnCard.data.cards);
@@ -37,22 +43,52 @@ const House = ({cards,deckId}) => {
                 currHouseCards.push(drawnCardVal);
                 currCounter=calculateCounter(currHouseCards);
             }catch{
+                console.error("Error drawing card:", error);
                 console.log("could not continue drawing cards for house");
             }
             setHouseCards(currHouseCards);
             setCounter(currCounter);
-            if(currCounter>21){
-                onResult('bust');
-            } else{
-                onResult('not bust');
-            }
-            setStopGame(true);
+            
+            
         }
+        if(currCounter>21){
+               // gameResult('bust');
+               console.log("bust");
+            } else{
+                //gameResult('not bust');
+                console.log("not bust");
+            }
+        setStopGame(true);
     }
+    useEffect(() => {
+        resetHasOriginalTwoCards(); // Call reset from Simulator
+      }, [resetHasOriginalTwoCards]);
+    useEffect(() => {
+        if (cards.length>0 && !stopGame && !hasOriginalTwoCards) {
+          setHouseCards(cards);
+          setHasOriginalTwoCards(true);
+        }
+      }, [cards, stopGame, hasOriginalTwoCards]);
+    
+      useEffect(() => {
+        if (hasOriginalTwoCards && !stopGame) {
+          drawCards();
+        }
+      }, [hasOriginalTwoCards, stopGame]);
+    
+      const showHouseCards=(cards)=>{
+        return cards.map((card,index)=>(
+          <img key={index} src={card.image} />
+        ));
+      };
 
 
   return (
-      <h2>House</h2> 
+    <>
+      <h2>Housee Cards:</h2> 
+      <div>{showHouseCards(houseCards)}</div>
+      <h3>House Total: {counter}</h3>
+      </>
   );
 };
 
