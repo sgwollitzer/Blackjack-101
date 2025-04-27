@@ -12,6 +12,7 @@ const Simulator = () => {
   const [deckId, setDeckId] = useState(null);
   const [houseCards,setHouseCards]=useState([]);
   const [playerCards,setPlayerCards]=useState([]);
+  const [result, setResult] = useState(null);
 
 
   useEffect(() => {
@@ -52,16 +53,26 @@ try{
 }
 }, [deckId!=null]);
 
+const showCards=(cards)=>{
+  return cards.map((card,index)=>(
+    <img key={index} src={card.image}/>
+  ));
+};
+
 
   return (
     <>
   <h1>simulator</h1>
-  <House cards={houseCards}/>
+  <House cards={houseCards} deckId={deckId}/>
       <div className="deck">
         <p>Deck of Cards</p>
       </div>
       <Player cards={playerCards}/>
       <Buttons />
+      <h2>house cards:</h2>
+      <div>{showCards(houseCards)}</div>
+      <h2>player cards:</h2>
+      <div>{showCards(playerCards)}</div>
   
 </>
   );
