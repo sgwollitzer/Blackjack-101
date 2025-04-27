@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Player = () => {
+const Player = ({cards}) => {
   return (
       <h2>Player</h2>
   );
