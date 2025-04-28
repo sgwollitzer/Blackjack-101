@@ -185,26 +185,40 @@ const calculateCounter=(cards)=>{
 
 }
 const hit=async ()=>{
-  const currCounter=calculateCounter(playerCards);
+  let currCounter=calculateCounter(playerCards);
+  
   setPlayerCounter(currCounter);
   if(currCounter<21){
   try{
     let drawnPlayerCard=await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
     let drawnPlayerCardVal=drawnPlayerCard.data.cards[0];
     setPlayerCards(prevCards => [...prevCards, drawnPlayerCardVal]);
+    currCounter = calculateCounter([...playerCards, drawnPlayerCardVal]);
+      setPlayerCounter(currCounter);
 
 }catch(error){
   console.error("Error drawing card:", error);
                 console.log("could not draw card for player");
 }
-  } else{
-    setGameResult("Your count is at least 21, so you cannot hit anymore. Click stand");
-  }
-  if(currCounter>21){
+  } 
+  
+      
+  if(currCounter>21&& houseCounter==0){
+    setGameResult("House and Player lost");
+    setShowHouseFaceUp(true);
+
+    setStopGame(true);
+
+  } else if(currCounter>21){
     setGameResult('You lost :(');
     setHouseWin(oldHouseWin => oldHouseWin + 1);
+    setShowHouseFaceUp(true);
+
     setStopGame(true);
   }
+  // const currPlayer = calculateCounter(playerCards);
+  // setPlayerCounter(currPlayer);
+  // console.log("this is currentttt player count",currPlayer);
 }
 useEffect(() => {
   console.log("Updated player cards:", playerCards);
