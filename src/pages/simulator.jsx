@@ -19,6 +19,7 @@ const Simulator = () => {
 
   const [showHouseFaceUp, setShowHouseFaceUp]=useState(false); 
 
+  const [gameResult, setGameResult] = useState('');
 
 
   const getHouseCounter = (value) => {
@@ -77,11 +78,11 @@ const showCards=(cards)=>{
 
 const handlePlayerPress=(action)=>{
   if (stopGame && action!= 'new game') {
-    alert("The game is over! Press 'New Game' to play again")
+    setGameResult("The game is over! Press 'New Game' to play again");
     return;
   }
   if(!stopGame && action=='new game'){
-    alert("You can only press this once the game has finished")
+    setGameResult("You can only press this once the game has finished");
   }
   else if(action=='new game'){
     console.log("new game");
@@ -100,31 +101,31 @@ const stand=()=>{
   setPlayerCounter(currPlayer);
   console.log("house counter for player standing is:",houseCounter);
   if(currPlayer>21&& houseCounter==0){
-    alert("House and Player lost");
+    setGameResult("House and Player lost");
   }
   else if(houseCounter==0 && currPlayer<=21){
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
-    alert("You win!");
+    setGameResult("You win!");
     console.log("deciding winners","player counter",currPlayer,"house:",houseCounter);
   }
   
   //why is playerCounter always printing out as null?
   else if(houseCounter==21 && currPlayer!=21){
-    alert("You lose :(");
+    setGameResult("You lose :(");
     setHouseWin(oldHouseWin => oldHouseWin + 1);
   } else if(currPlayer==21 && houseCounter!=21){
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
-    alert("You win!");
+    setGameResult("You win!");
   } else if(houseCounter == currPlayer){
-    alert("Tie!");
+    setGameResult("Tie!");
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
     setHouseWin(oldHouseWin => oldHouseWin + 1);
   } else if(houseCounter>currPlayer){
-    alert("You lost :(");
+    setGameResult("You lost :(");
     setHouseWin(oldHouseWin => oldHouseWin + 1);
   } else if(currPlayer>houseCounter && currPlayer<=21){
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
-    alert("You win!");
+    setGameResult("You win!");
   }
   setShowHouseFaceUp(true);
   setStopGame(true);
@@ -143,6 +144,7 @@ const newGame=async()=>{
 setDeckId(null);
 setHouseCards([]);
 setPlayerCards([]);
+setGameResult('Game in Progress');
 
 setHasOriginalTwoCards(false);
 setStopGame(false);
@@ -196,10 +198,10 @@ const hit=async ()=>{
                 console.log("could not draw card for player");
 }
   } else{
-    alert("Your count is at least 21, so you cannot hit anymore. Click stand");
+    setGameResult("Your count is at least 21, so you cannot hit anymore. Click stand");
   }
   if(currCounter>21){
-    alert('You lost :(');
+    setGameResult('You lost :(');
     setHouseWin(oldHouseWin => oldHouseWin + 1);
     setStopGame(true);
   }
@@ -214,6 +216,8 @@ useEffect(() => {
   <div id="counters">
   <h3 className="h2T2">House Wins: {houseWin}</h3>
   <h3 className="h2T2">Player Wins: {playerWin}</h3></div>
+  <div className="gameResultBox">
+  {gameResult && <div className="gameResult">{gameResult}</div>}</div>
   <Player cards={playerCards} playerPress={handlePlayerPress}  />
   {!showHouseFaceUp && (<House key={deckId} stopGame={stopGame} cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards} setHouseCounter={getHouseCounter}/>
 )}
