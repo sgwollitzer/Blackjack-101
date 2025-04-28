@@ -13,3 +13,9 @@ h1,h2,h3{
     margin:0;
     box-sizing:border-box;
 }
+footer{
+  text-align:center;
+  background-color:var(--m-light-gray);
+  border-radius: 20% 20% 0 0 ;
+  padding:2rem;
+}

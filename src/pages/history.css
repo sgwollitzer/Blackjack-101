@@ -7,7 +7,7 @@ margin-top:1rem;
  
   .rulesection2{
 width:80%;
-margin:0 auto 5rem auto;
+margin:0 auto 3rem auto;
 line-height:1.5;
 border: 2px solid var(--m-green);
     border-radius: 10px;
@@ -15,7 +15,6 @@ border: 2px solid var(--m-green);
     background-color:var(--m-light-gray);
     padding-left:2rem;
     padding-right:2rem;
-    padding-bottom:1rem;
     padding-top:1rem;
   }
   
@@ -26,4 +25,11 @@ border: 2px solid var(--m-green);
   li{
     line-height:2;
     text-align:left;
+  }
+  #youtube{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-bottom:3rem;
+    
   }
