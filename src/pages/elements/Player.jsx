@@ -16,12 +16,11 @@ const Player = ({cards,playerPress}) => {
           }else{
               currCounter+=parseInt(card.value, 10);
           }
-          if(aces!=0){
-              currCounter+=11;
-              if(currCounter>21){
-                  currCounter-=10;
-              }
-          }
+          
+      }
+      while (currCounter>21&&aces>0) {
+        currCounter-=10;
+        aces--;
       }
       return currCounter;
 
