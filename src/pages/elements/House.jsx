@@ -7,7 +7,7 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
     const [counter,setCounter]=useState(0);
     const [hasOriginalTwoCards, setHasOriginalTwoCards] = useState(false);
 
-    const calculateCounter=(cards)=>{
+    const calculateCounter=(cards, stopGame)=>{
         let currCounter=0;
         let aces=0;
         for(const card of cards){
@@ -78,17 +78,39 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
         }
       }, [hasOriginalTwoCards, stopGame]);
     
-      const showHouseCards=(cards)=>{
+      // const showHouseCards=(cards)=>{
+      //   return cards.map((card,index)=>(
+      //     <img key={index} src={card.image} className="card-image" />
+      //   ));
+      // };
+      const showHouseCards=(cards,stopGame)=>{
+        if(stopGame){
+          console.log("cards will be facedown");
+        return cards.map((card,index)=>{
+          let cardImage;
+          if(index==0){
+            cardImage=card.image;
+          } else{
+            cardImage = 'https://deckofcardsapi.com/static/img/back.png';
+
+          }
+           return <img key={index} src={cardImage} className="card-image" />
+
+        });
+      }else{
+        console.log("cards will not be facedown");
+
         return cards.map((card,index)=>(
-          <img key={index} src={card.image} />
-        ));
-      };
+               <img key={index} src={card.image} className="card-image" />
+             ));
+      }
+      }
 
 
   return (
     <>
-      <h2>House Cards:</h2> 
-      <div>{showHouseCards(houseCards)}</div>
+      <h2 className="centeredd">House Cards:</h2> 
+      <div className="cardContainers">{showHouseCards(houseCards,stopGame)}</div>
       </>
   );
 };

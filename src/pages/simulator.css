@@ -1,0 +1,47 @@
+:root {
+    --m-light-gray: rgb(243, 243, 243);
+    --m-red:rgb(155,35,37);
+    --m-green:rgb(36, 78, 41);
+  }
+.titleH{
+    margin:5rem;
+    text-align:center;
+  }
+  .h2T2{
+    border:2px solid var(--m-red);
+border-radius:10px;
+padding:1.2rem;
+  }
+  .h2T2:hover{
+    background-color:var(--m-red);
+    color:white;
+    cursor:default;
+    border:2px solid var(--m-light-gray);
+  }
+  #counters{
+    display:flex;
+    justify-content: center;
+    gap:5rem;
+  }
+  .centeredd{
+    display:flex;
+    justify-content: center;
+
+  }
+  .card-image{
+    width:150px;
+    height:auto;
+  }
+  .cardContainers{
+display:flex;
+justify-content: center;
+gap:0.5rem;
+padding:2rem;
+  }
+  .cardContainers2{
+    display:flex;
+    justify-content: center;
+    gap:0.5rem;
+    padding:0rem;
+      }
+      

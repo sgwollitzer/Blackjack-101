@@ -1,0 +1,29 @@
+:root {
+    --m-light-gray: rgb(243, 243, 243);
+    --m-red:rgb(155,35,37);
+    --m-green:rgb(36, 78, 41);
+  }
+
+.Sbutton{
+   width:5rem;
+   height:5rem;
+   border:2px solid var(--m-green);
+   background-color:var(--m-red);
+   color:white;
+   font-size:20px;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   border-radius:10px;
+   
+}
+.Sbutton:hover{
+    cursor:pointer;
+}
+.buttons{
+    margin-top:2.5rem;
+    display:flex;
+    justify-content: center;
+    gap:3rem;
+    margin-bottom:2.5rem;
+}

@@ -59,7 +59,7 @@ const Home = () => {
     </div>
     <div className="card">
     
-    <h2>Casino Info</h2>
+    <h2>Top Casinos</h2>
     <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
             <Link className="black" to="/casinoInfo">Curious about where blackjack is played the most? Click Here</Link></motion.div>
     </div>

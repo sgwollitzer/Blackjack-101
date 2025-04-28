@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link className="hover" to="/countingCards">Counting Cards</Link>
       </div>
       <div >
-        <Link className="hover" to="/casinoInfo">Casino Info</Link>
+        <Link className="hover" to="/casinoInfo">Top Casinos</Link>
       </div>
       
       
