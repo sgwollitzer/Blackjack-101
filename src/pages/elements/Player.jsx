@@ -1,5 +1,4 @@
 import React,{ useState, useEffect }  from 'react';
-import axios from 'axios';
 import Buttons from './Buttons';
 const Player = ({cards,playerPress}) => {
    const [playerCards, setPlayerCards] = useState(cards);
@@ -36,11 +35,7 @@ const Player = ({cards,playerPress}) => {
           }
         }, [cards,  hasOriginalTwoCards]);
 
-        const showPlayerCards=(cards)=>{
-          return cards.map((card,index)=>(
-            <img key={index} src={card.image} />
-          ));
-        };
+        
         useEffect(() => {
           setCounter(calculateCounter(playerCards)); 
         }, [playerCards]);
@@ -48,9 +43,6 @@ const Player = ({cards,playerPress}) => {
  
   return (
     <>
-      {/* <h2>Playerr Cards:</h2> 
-      <div>{showPlayerCards(playerCards)}</div> */}
-      <h3>Player Total: {counter}</h3>
       <Buttons press={playerPress} />
       </>
   );

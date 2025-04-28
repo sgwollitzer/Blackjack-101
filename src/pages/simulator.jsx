@@ -5,9 +5,6 @@ import Player from './elements/Player';
 import Buttons from './elements/Buttons';
 import axios from 'axios';
 
-
-
-
 const Simulator = () => {
   const [deckId, setDeckId] = useState(null);
   const [houseCards,setHouseCards]=useState([]);
@@ -25,10 +22,7 @@ const Simulator = () => {
     setHouseCounter(value);
    
   };
-  // const getPlayerCounter = (value) => {
-  //   setPlayerCounter(value);
-   
-  // };
+  
 
   useEffect(() => {
     console.log(deckId);
@@ -77,16 +71,16 @@ const showCards=(cards)=>{
   ));
 };
 
-useEffect(() => {
-  if (houseCounter==21) {
-    setHouseWin(oldHouseWin => oldHouseWin+1);
-  }
-  if(playerCounter==21){
-    setPlayerWin(oldPlayerWin=>oldPlayerWin+1);
-  }
-}, [houseCounter]);
+
 const handlePlayerPress=(action)=>{
-  if(action=='new game'){
+  if (stopGame && action!= 'new game') {
+    alert("the game is over! press new game to play again")
+    return;
+  }
+  if(!stopGame && action=='new game'){
+    alert("you can only new game once this game is finished")
+  }
+  else if(action=='new game'){
     console.log("new game");
     newGame();
   } else if(action=='hit'){
@@ -96,16 +90,16 @@ const handlePlayerPress=(action)=>{
     console.log("stand");
     stand();
   }
-  // } else if(action=='split'){
-  //   console.log("split");
-  //   split();
-  // }
+
 }
 const stand=()=>{
   const currPlayer = calculateCounter(playerCards);
   setPlayerCounter(currPlayer);
   console.log("house counter for player standing is:",houseCounter);
-  if(houseCounter==0){
+  if(currPlayer>21&& houseCounter==0){
+    alert("you both lost");
+  }
+  else if(houseCounter==0){
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
     alert("you won");
     console.log("deciding winners","player counter",currPlayer,"house:",houseCounter);
@@ -129,6 +123,7 @@ const stand=()=>{
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
     alert("you won");
   }
+  setStopGame(true);
 }
 
 
@@ -194,6 +189,7 @@ const hit=async ()=>{
   if(currCounter>21){
     alert('player loses');
     setHouseWin(oldHouseWin => oldHouseWin + 1);
+    setStopGame(true);
   }
 }
 useEffect(() => {
@@ -202,22 +198,15 @@ useEffect(() => {
 
   return (
     <>
-  <h1>simulator</h1>
-  <h3>House Counter: {houseCounter}</h3>
-  <h3>Player Counter: {playerCounter}</h3>
-
+  <h1>Simulator</h1>
   <h2>House wins: {houseWin}</h2>
-
   <h2>Player wins: {playerWin}</h2>
-  <House cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards} setHouseCounter={getHouseCounter}/>
+  <House key={deckId} cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards} setHouseCounter={getHouseCounter}/>
       <div className="deck">
         <p>Deck of Cards</p>
       </div>
       <Player cards={playerCards} playerPress={handlePlayerPress}  />
-      {/* <Buttons /> */}
-      {/* <h2>house cards:</h2>
-      <div>{showCards(houseCards)}</div> */}
-      <h2>player cards:</h2>
+      <h2>Player's Cards:</h2>
       <div>{showCards(playerCards)}</div>
   
 </>

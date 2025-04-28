@@ -6,9 +6,6 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
     const [stopGame,setStopGame]=useState(false);
     const [counter,setCounter]=useState(0);
     const [hasOriginalTwoCards, setHasOriginalTwoCards] = useState(false);
-    // const setter = (value) => {
-    //     return value;
-    //   };
 
     const calculateCounter=(cards)=>{
         let currCounter=0;
@@ -66,7 +63,7 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
         setStopGame(true);
     }
     useEffect(() => {
-        resetHasOriginalTwoCards(); // Call reset from Simulator
+        resetHasOriginalTwoCards();
       }, [resetHasOriginalTwoCards]);
     useEffect(() => {
         if (cards.length>0 && !stopGame && !hasOriginalTwoCards) {
@@ -90,9 +87,8 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
 
   return (
     <>
-      <h2>Housee Cards:</h2> 
+      <h2>House Cards:</h2> 
       <div>{showHouseCards(houseCards)}</div>
-      <h3>House Total: {counter}</h3>
       </>
   );
 };
