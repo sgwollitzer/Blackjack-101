@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CasinoInfo from './pages/casinoInfo'
@@ -9,7 +9,7 @@ import Simulator from './pages/simulator'
 
 function App ()  {
   return (
-    <Router>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App ()  {
         <Route path="/simulator" element={<Simulator />} />
 
       </Routes>
-    </Router>
+    </HashRouter>
   );
 };
 
