@@ -19,6 +19,8 @@ const Simulator = () => {
 
   const [showHouseFaceUp, setShowHouseFaceUp]=useState(false); 
 
+  const [finalFaceUp,setFinalFaceUp]=useState([]);
+
   const [gameResult, setGameResult] = useState('');
 
 
@@ -100,6 +102,7 @@ const stand=()=>{
   const currPlayer = calculateCounter(playerCards);
   setPlayerCounter(currPlayer);
   console.log("house counter for player standing is:",houseCounter);
+  console.log("player counter for player standing", currPlayer);
   if(currPlayer>21&& houseCounter==0){
     setGameResult("House and Player lost");
   }
@@ -130,9 +133,9 @@ const stand=()=>{
   setShowHouseFaceUp(true);
   setStopGame(true);
 }
- const showHouseCards2=(cards)=>{
+ const showHouseCards2=()=>{
   if(showHouseFaceUp){
-         return cards.map((card,index)=>(
+         return finalFaceUp.map((card,index)=>(
            <img key={index} src={card.image} className="card-image" />
          ));
         }
@@ -145,7 +148,7 @@ setDeckId(null);
 setHouseCards([]);
 setPlayerCards([]);
 setGameResult('Game in Progress');
-
+setFinalFaceUp([]);
 setHasOriginalTwoCards(false);
 setStopGame(false);
 console.log("reset game");
@@ -233,7 +236,7 @@ useEffect(() => {
   <div className="gameResultBox">
   {gameResult && <div className="gameResult">{gameResult}</div>}</div>
   <Player cards={playerCards} playerPress={handlePlayerPress}  />
-  {!showHouseFaceUp && (<House key={deckId} stopGame={stopGame} cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards} setHouseCounter={getHouseCounter}/>
+  {!showHouseFaceUp && (<House key={deckId} stopGame={stopGame} cards={houseCards} deckId={deckId} resetHasOriginalTwoCards={resetHasOriginalTwoCards} setHouseCounter={getHouseCounter} setFinalFaceUp={setFinalFaceUp}/>
 )}
   <div className="cardContainers2">
         {showHouseCards2(houseCards, stopGame)}

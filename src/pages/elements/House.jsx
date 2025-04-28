@@ -1,7 +1,7 @@
 import React,{ useState, useEffect }  from 'react';
 import axios from 'axios';
 
-const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
+const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter,setFinalFaceUp}) => {
     const [houseCards, setHouseCards] = useState(cards);
     const [stopGame,setStopGame]=useState(false);
     const [counter,setCounter]=useState(0);
@@ -15,6 +15,7 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
                 currCounter+=10;
             } else if(card.value=='ACE'){
                 aces++;
+                currCounter+=11;
             }else{
                 currCounter+=parseInt(card.value, 10);
             }
@@ -45,6 +46,7 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter}) => {
                 console.log("could not continue drawing cards for house");
             }
             setHouseCards(currHouseCards);
+            setFinalFaceUp(currHouseCards);
             setCounter(currCounter);
             setHouseCounter(currCounter);
             
