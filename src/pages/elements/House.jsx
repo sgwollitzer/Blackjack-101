@@ -33,6 +33,8 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter,setFinal
         console.log("House cards before drawing more:", currHouseCards);
         let currCounter=calculateCounter(currHouseCards);
         console.log("currCounter",currCounter);
+        setHouseCards(currHouseCards);
+  setFinalFaceUp(currHouseCards);
         while (currCounter<17){
             console.log("is this happening");
             try{

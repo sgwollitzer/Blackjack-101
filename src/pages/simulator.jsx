@@ -134,6 +134,7 @@ const stand=()=>{
   setStopGame(true);
 }
  const showHouseCards2=()=>{
+  console.log("showing face up cards");
   if(showHouseFaceUp){
          return finalFaceUp.map((card,index)=>(
            <img key={index} src={card.image} className="card-image" />

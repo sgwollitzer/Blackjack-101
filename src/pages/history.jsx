@@ -23,11 +23,14 @@ const History = () => {
   <p>Blackjack remains to be one of the most profitable games at a casino. However, casinos have measures in place to track card counting, and individuals caught card counting are often throw out of and banned from the casino.</p>
  </div>
   {/* https://www.blackjackapprenticeship.com/the-history-of-blackjack-and-card-counting/ */}
+  <div className="rulesection">
+    <h2>Want to Know More?</h2>
   <div id="youtube">
   <iframe width='700' height='400' src='https://www.youtube.com/embed/i6sIh3966G4' frameborder='5' allow='autoplay; encrypted-media' allowFullScreen
   title='history of blackjack'
 />
 {/* https://stackoverflow.com/questions/44715819/iframes-and-react-js-how-to-embed-a-youtube-video-into-my-app */}
+</div>
 </div>
  
   </>

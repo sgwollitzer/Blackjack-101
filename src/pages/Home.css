@@ -89,6 +89,7 @@ background-color:var(--m-light-gray);
     border-radius:10px;
     max-width:50%;
     padding:1rem;
+    background-color:white;
 }
 
 p{
