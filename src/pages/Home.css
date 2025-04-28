@@ -3,6 +3,9 @@
     --m-red:rgb(155,35,37);
     --m-green:rgb(36, 78, 41);
   }
+  h2{
+    text-align:center;
+  }
 .first-section{
     display:flex;
     margin-left:5rem;
@@ -12,7 +15,7 @@
     gap:3rem;
 }
 .big{
-    font-size:50px;
+    font-size:3rem;
     text-align: center;
     flex:1;
     line-height:1.5;
@@ -25,20 +28,24 @@
     width: 100%; 
     max-width: 400px; 
     height: auto;
-    margin-top:10rem;
+    margin-top:5rem;
+    border:2px solid var(--m-red);
+    border-radius:10px;
   }
   .rulesection{
     border: 2px solid var(--m-green);
     padding:2rem;
     border-radius: 10px;
-    text-align:center;
-    line-height:1.5;
+    line-height:5;
     background-color:var(--m-light-gray);
     margin-top:10rem;
   }
   h3{
     border:2px solid var(--m-red);
 border-radius:10px;
+margin-top:1rem;
+margin-bottom:0.5rem;
+text-align:center;
   }
   .second-section{
     display:flex;
@@ -56,6 +63,7 @@ border-radius:10px;
     flex-direction:column;
     gap:1rem;
     background-color:var(--m-light-gray);
+    /* width:20rem; */
 }
 .black:hover{
     color:black;
@@ -81,4 +89,22 @@ background-color:var(--m-light-gray);
     border-radius:10px;
     max-width:50%;
     padding:1rem;
+}
+
+p{
+    line-height:2;
+}
+@media (width< 760px) {
+    .second-section{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .card{
+        width:20rem;
+        flex:0;
+    }
+    
 }

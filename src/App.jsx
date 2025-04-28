@@ -6,10 +6,20 @@ import CasinoInfo from './pages/casinoInfo'
 import CountingCards from './pages/countingCards'
 import History from './pages/history'
 import Simulator from './pages/simulator'
+import backgroundImage from './images/backround.jpg'; 
+
+const appStyle = {
+  // backgroundImage: `url(${backgroundImage})`,
+  // backgroundSize: 'cover',
+  // backgroundRepeat: 'no-repeat',
+  // backgroundPosition: 'center center',
+  // minHeight: '100vh',
+};
 
 function App ()  {
   return (
     <HashRouter>
+     <div style={appStyle}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,6 +29,7 @@ function App ()  {
         <Route path="/simulator" element={<Simulator />} />
 
       </Routes>
+      </div>
     </HashRouter>
   );
 };

@@ -102,7 +102,7 @@ const stand=()=>{
   if(currPlayer>21&& houseCounter==0){
     alert("House and Player lost");
   }
-  else if(houseCounter==0){
+  else if(houseCounter==0 && currPlayer<=21){
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
     alert("You win!");
     console.log("deciding winners","player counter",currPlayer,"house:",houseCounter);
@@ -122,7 +122,7 @@ const stand=()=>{
   } else if(houseCounter>currPlayer){
     alert("You lost :(");
     setHouseWin(oldHouseWin => oldHouseWin + 1);
-  } else if(currPlayer>houseCounter){
+  } else if(currPlayer>houseCounter && currPlayer<=21){
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
     alert("You win!");
   }

@@ -20,6 +20,7 @@ a {
     height:3.5rem;
     display:flex;
     justify-content: center;
+    gap:1rem;
     align-items: center;
     border-radius: 100%;
 }
@@ -43,4 +44,21 @@ nav{
     gap:3rem;
     align-items:center;
     margin-top:30px;
+}
+@media (width< 950px) {
+  .hidden{
+    display:none;
+  }
+}
+  @media (width< 380px) {
+    .hidden1{
+      display:none;
+    }
+   @media(max-width: 950px) and (min-width: 380px){
+    .hidden2{
+      display:none;
+    }
+   }
+    
+  
 }

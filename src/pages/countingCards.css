@@ -41,3 +41,11 @@
     justify-content: center;
     gap:3rem;
 }
+.makecenter{
+  text-align:center;
+}
+@media (width< 760px) {
+  .hiding{
+    display:none;
+  }
+}
