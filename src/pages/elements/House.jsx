@@ -15,7 +15,6 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter,setFinal
                 currCounter+=10;
             } else if(card.value=='ACE'){
                 aces++;
-                currCounter+=11;
             }else{
                 currCounter+=parseInt(card.value, 10);
             }
