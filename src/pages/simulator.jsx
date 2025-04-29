@@ -189,12 +189,14 @@ const calculateCounter=(cards)=>{
       }else{
           currCounter+=parseInt(card.value, 10);
       }
-      if(aces!=0){
-          currCounter+=11;
-          if(currCounter>21){
-              currCounter-=10;
-          }
-      }
+      
+  }
+  for(let i=0;i<aces;aces++){
+    if(currCounter+11<=21){
+      currCounter+=11;
+    } else{
+      currCounter+=1;
+    }
   }
   return currCounter;
 

@@ -21,10 +21,14 @@ const House = ({cards,deckId, resetHasOriginalTwoCards, setHouseCounter,setFinal
             }
            
         }
-        while (currCounter>21&&aces>0) {
-          currCounter-=10;
-          aces--;
+        for(let i=0;i<aces;aces++){
+          if(currCounter+11<=21){
+            currCounter+=11;
+          } else{
+            currCounter+=1;
+          }
         }
+       
         return currCounter;
 
     }
