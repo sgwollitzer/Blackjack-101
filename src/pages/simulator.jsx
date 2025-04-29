@@ -194,8 +194,10 @@ const calculateCounter=(cards)=>{
   for(let i=0;i<aces;i++){
     if(currCounter+11<=21){
       currCounter+=11;
+      console.log("adding 11 as ace");
     } else{
       currCounter+=1;
+      console.log("adding 1 as ace");
     }
   }
   return currCounter;
@@ -240,57 +242,60 @@ const hit=async ()=>{
 
   const doubleDown=async ()=>{
     if(canDoubleDown){
-    let currCounter=calculateCounter(playerCards);
+      let currCounter=calculateCounter(playerCards);
   
-    setPlayerCounter(currCounter);
-    if(currCounter<21){
-    try{
-      let drawnPlayerCard=await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
-      let drawnPlayerCardVal=drawnPlayerCard.data.cards[0];
-      setPlayerCards(prevCards => [...prevCards, drawnPlayerCardVal]);
-      currCounter = calculateCounter([...playerCards, drawnPlayerCardVal]);
-        setPlayerCounter(currCounter);
-  
-  }catch(error){
-    console.error("Error drawing card:", error);
-                  console.log("could not draw card for player");
-  }
-    } 
-    const currPlayer = calculateCounter(playerCards);
-  setPlayerCounter(currPlayer);
+      setPlayerCounter(currCounter);
+      if(currCounter<21){
+      try{
+        let drawnPlayerCard=await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
+        let drawnPlayerCardVal=drawnPlayerCard.data.cards[0];
+        setPlayerCards(prevCards => [...prevCards, drawnPlayerCardVal]);
+        currCounter = calculateCounter([...playerCards, drawnPlayerCardVal]);
+          setPlayerCounter(currCounter);
+    
+    }catch(error){
+      console.error("Error drawing card:", error);
+                    console.log("could not draw card for player");
+    }
+      } 
+    //const currPlayer = calculateCounter(playerCards);
+  //setPlayerCounter(currPlayer);
   console.log("house counter for player dd is:",houseCounter);
-  console.log("player counter for player dd", currPlayer);
-    if(currPlayer>21&& houseCounter==0){
+  console.log("player counter for player dd", currCounter);
+    if(currCounter>21&& houseCounter==0){
       setGameResult("House and Player lost");
       setPlayerWin(oldPlayerWin => oldPlayerWin - 1);
 
     }
-    else if(houseCounter==0 && currPlayer<=21){
+    else if(houseCounter==0 && currCounter<=21){
       setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
       setGameResult("You win!");
-      console.log("deciding winners","player counter",currPlayer,"house:",houseCounter);
+      console.log("deciding winners","player counter",currCounter,"house:",houseCounter);
     }
     
     //why is playerCounter always printing out as null?
-    else if(houseCounter==21 && currPlayer!=21){
+    else if(houseCounter==21 && currCounter!=21){
       setGameResult("You lose :(");
       setHouseWin(oldHouseWin => oldHouseWin + 1);
       setPlayerWin(oldPlayerWin => oldPlayerWin - 1);
-    } else if(currPlayer==21 && houseCounter!=21){
+    } else if(currCounter==21 && houseCounter!=21){
       setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
       setGameResult("You win!");
-    } else if(houseCounter == currPlayer){
+    } else if(houseCounter == currCounter){
       setGameResult("Tie!");
       setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
       setHouseWin(oldHouseWin => oldHouseWin + 1);
-    } else if(houseCounter>currPlayer){
+    } else if(houseCounter>currCounter){
       setGameResult("You lost :(");
       setHouseWin(oldHouseWin => oldHouseWin + 1);
       setPlayerWin(oldPlayerWin => oldPlayerWin - 1);
 
-    } else if(currPlayer>houseCounter && currPlayer<=21){
+    } else if(currCounter>houseCounter && currCounter<=21){
       setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
       setGameResult("You win!");
+    }else if(houseCounter!=0 && currCounter>21){
+      setPlayerWin(oldPlayerWin => oldPlayerWin -1);
+      setGameResult("You lost :(");
     }
     setShowHouseFaceUp(true);
     setStopGame(true);
