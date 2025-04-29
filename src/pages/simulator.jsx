@@ -23,6 +23,9 @@ const Simulator = () => {
 
   const [gameResult, setGameResult] = useState('');
 
+  const[canDoubleDown,setCanDoubleDown]=useState(true);
+  const [canHitStand,setCanHitStand]=useState(true);
+
 
   const getHouseCounter = (value) => {
     setHouseCounter(value);
@@ -92,9 +95,16 @@ const handlePlayerPress=(action)=>{
   } else if(action=='hit'){
     console.log("hit");
     hit();
+    setCanDoubleDown(false);
   } else if(action=='stand'){
     console.log("stand");
     stand();
+    setCanDoubleDown(false);
+  } else if(action=='double down'){
+    console.log("double down");
+    doubleDown();
+  } else if(!canDoubleDown&&action=='double down'){
+    setGameResult("You can only press this if you haven't pressed stand or hit yet");
   }
 
 }
@@ -152,6 +162,7 @@ setGameResult('Game in Progress');
 setFinalFaceUp([]);
 setHasOriginalTwoCards(false);
 setStopGame(false);
+setCanDoubleDown(true);
 console.log("reset game");
 try {
   let responseData = await axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
@@ -224,6 +235,67 @@ const hit=async ()=>{
   // setPlayerCounter(currPlayer);
   // console.log("this is currentttt player count",currPlayer);
 }
+
+  const doubleDown=async ()=>{
+    if(canDoubleDown){
+    let currCounter=calculateCounter(playerCards);
+  
+    setPlayerCounter(currCounter);
+    if(currCounter<21){
+    try{
+      let drawnPlayerCard=await axios.get(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`);
+      let drawnPlayerCardVal=drawnPlayerCard.data.cards[0];
+      setPlayerCards(prevCards => [...prevCards, drawnPlayerCardVal]);
+      currCounter = calculateCounter([...playerCards, drawnPlayerCardVal]);
+        setPlayerCounter(currCounter);
+  
+  }catch(error){
+    console.error("Error drawing card:", error);
+                  console.log("could not draw card for player");
+  }
+    } 
+    const currPlayer = calculateCounter(playerCards);
+  setPlayerCounter(currPlayer);
+  console.log("house counter for player dd is:",houseCounter);
+  console.log("player counter for player dd", currPlayer);
+    if(currPlayer>21&& houseCounter==0){
+      setGameResult("House and Player lost");
+      setPlayerWin(oldPlayerWin => oldPlayerWin - 1);
+
+    }
+    else if(houseCounter==0 && currPlayer<=21){
+      setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
+      setGameResult("You win!");
+      console.log("deciding winners","player counter",currPlayer,"house:",houseCounter);
+    }
+    
+    //why is playerCounter always printing out as null?
+    else if(houseCounter==21 && currPlayer!=21){
+      setGameResult("You lose :(");
+      setHouseWin(oldHouseWin => oldHouseWin + 1);
+      setPlayerWin(oldPlayerWin => oldPlayerWin - 1);
+    } else if(currPlayer==21 && houseCounter!=21){
+      setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
+      setGameResult("You win!");
+    } else if(houseCounter == currPlayer){
+      setGameResult("Tie!");
+      setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
+      setHouseWin(oldHouseWin => oldHouseWin + 1);
+    } else if(houseCounter>currPlayer){
+      setGameResult("You lost :(");
+      setHouseWin(oldHouseWin => oldHouseWin + 1);
+      setPlayerWin(oldPlayerWin => oldPlayerWin - 1);
+
+    } else if(currPlayer>houseCounter && currPlayer<=21){
+      setPlayerWin(oldPlayerWin => oldPlayerWin + 2);
+      setGameResult("You win!");
+    }
+    setShowHouseFaceUp(true);
+    setStopGame(true);
+  }else{
+    setGameResult("You can only press this if you haven't pressed stand or hit yet");
+  }
+  }
 useEffect(() => {
   console.log("Updated player cards:", playerCards);
 }, [playerCards]);

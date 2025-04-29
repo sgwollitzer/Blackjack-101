@@ -145,3 +145,7 @@ background-color:var(--m-light-gray);
 max-width:80%;
 text-align:center;
 }
+.aleo{
+    font-family: 'Aleo', sans-serif; 
+
+}

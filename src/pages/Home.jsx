@@ -42,19 +42,19 @@ const Home = () => {
   <div className="card">
   <h2>History</h2>
   <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
-  <Link className="black" to="/history">Click here to learn more about how blackjack came to be</Link></motion.div>
+  <Link className="black aleo" to="/history">Click here to learn more about how blackjack came to be</Link></motion.div>
     </div>
     <div className="card">
     <h2>Counting Cards</h2>
     <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
 
-            <Link className="black"to="/countingCards">Want to know how to actually make money playing blackjack in casinos? Click here to learn the strategy that'll increase your odds</Link></motion.div>
+            <Link className="black aleo"to="/countingCards">Want to know how to actually make money playing blackjack in casinos? Click here to learn the strategy that'll increase your odds</Link></motion.div>
     </div>
     <div className="card">
     
     <h2>Top Casinos</h2>
     <motion.div className="button" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
-            <Link className="black" to="/casinoInfo">Curious about where blackjack is played the most? Click Here</Link></motion.div>
+            <Link className="black aleo" to="/casinoInfo">Curious about where blackjack is played the most? Click Here</Link></motion.div>
     </div>
     </div>
     </>

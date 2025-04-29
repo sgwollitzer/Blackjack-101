@@ -27,3 +27,16 @@
     gap:3rem;
     margin-bottom:2.5rem;
 }
+.buttonS1,.buttonS2 {
+  display:flex;
+  gap:3rem;
+}
+
+@media (width< 760px) {
+    .buttonS1,.buttonS2{
+        display:block;
+    }
+    .Sbutton{
+        margin-top:1rem;
+    }
+}
