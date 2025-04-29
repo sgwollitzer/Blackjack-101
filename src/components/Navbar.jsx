@@ -21,6 +21,9 @@ const Navbar = () => {
         <Link className="hover hidden hidden1" to="/history">History</Link>
       </div>
       <div >
+        <Link className="hover hidden hidden1" to="/rules">Rules</Link>
+      </div>
+      <div >
         <Link className="hover hidden1" to="/countingCards">Counting Cards</Link>
       </div>
       <div >

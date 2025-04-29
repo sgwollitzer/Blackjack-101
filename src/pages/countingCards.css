@@ -14,10 +14,19 @@
     text-align:center;
     margin-bottom:3rem;
   }
-  .rulesection{
+  .bookSection{
     width:80%;
-    margin:5rem auto 5rem auto;
+    margin:0rem auto 5rem auto;
     line-height:1.5;
+    gap:1rem;
+    border: 2px solid var(--m-green);
+    padding:2rem;
+    border-radius: 10px;
+    background-color:var(--m-light-gray);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
       }
       .bookimg{
         width: 100%; 

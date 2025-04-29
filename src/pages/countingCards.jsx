@@ -12,7 +12,7 @@ const CountingCards = () => {
     <>
   <h1 className="titleCC">Counting Cards: Learn Two Strategies</h1>
   <p className="red-underline">*Disclaimer* Casinos have methods in place to catch players that card count. Card count at your own discretion.</p>
-    <div className="rulesection">
+    <div className="section2 rulesection2">
     <h2 className="h2T">Hi-Lo</h2>
     <ol>
       <li>Bet at least 200 times the minimum bet</li>
@@ -33,7 +33,7 @@ const CountingCards = () => {
     <p>Negative counts = more higher cards in the deck</p>
     </div>
     {/* https://www.wikihow.com/Count-Cards-in-Blackjack */}
-    <div className="rulesection">
+    <div className="bookSection">
     <h2>Want to Learn More?</h2>
     <p className="makecenter">Here are some great books to check out:</p>
 

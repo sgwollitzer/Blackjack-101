@@ -41,14 +41,13 @@ const CasinoInfo = () => {
     <>
     <div className="centered">
   <h1 className="big">Top Casinos for Blackjack</h1>
-  <a href="#casino-section">
-  <motion.img className="arrowdownimg" whileHover={{scale:1.5}} transition={{ type: "spring", bounce: 0.2 }}
+  <img className="arrowdownimg"
 
     src={arrowdown}
     alt="scroll down to casino section"
   />
 
-</a>
+
     </div>
     
     <div id="casino-section">
@@ -157,6 +156,7 @@ const CasinoInfo = () => {
   {/* https://vitamagazine.com/2024/06/09/blackjack-bliss-exploring-the-top-casinos-worldwide-for-blackjack-enthusiasts/ */}
  
   {/* https://www.blackjackhero.com/blackjack/casinos/ */}
+
     <motion.div className="redborder" whileHover={{scale:1.1}} transition={{ type: "spring", bounce: 0.5 }}>
   <a
   href="https://www.blackjackhero.com/blackjack/casinos/"

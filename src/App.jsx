@@ -8,6 +8,9 @@ import History from './pages/history'
 import Simulator from './pages/simulator'
 import backgroundImage from './images/backround.jpg'; 
 
+import Rules from './pages/rules'
+
+
 const appStyle = {
   // backgroundImage: `url(${backgroundImage})`,
   // backgroundSize: 'cover',
@@ -27,6 +30,8 @@ function App ()  {
         <Route path="/countingCards" element={<CountingCards />} />
         <Route path="/history" element={<History />} />
         <Route path="/simulator" element={<Simulator />} />
+        <Route path="/rules" element={<Rules />} />
+
 
       </Routes>
       </div>

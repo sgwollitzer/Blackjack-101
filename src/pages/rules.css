@@ -1,0 +1,18 @@
+.h2T{
+    border:2px solid var(--m-red);
+  border-radius:10px;
+  margin-bottom:0.5rem;
+  margin-top:1rem;
+  }
+  .rulesection2{
+    border: 2px solid var(--m-green);
+    padding:2rem;
+    border-radius: 10px;
+    line-height:5;
+    background-color:var(--m-light-gray);
+    line-height:2;
+
+  }
+  p{
+    text-align:left;
+  }

@@ -60,4 +60,18 @@ padding:2rem;
     justify-content: center;
     align-items: center;
   }
+  @media (width< 760px) {
+    .cardContainers{
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .cardContainers2{
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
       

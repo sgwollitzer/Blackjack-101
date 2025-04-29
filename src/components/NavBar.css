@@ -32,7 +32,7 @@ body{
     background-color:var(--m-light-gray);
     border-radius: 10px;
     height:3rem;
-    width:50%;
+    width:60%;
     justify-content: center;
     align-items: center;
     gap:4rem;

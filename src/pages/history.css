@@ -32,3 +32,36 @@ border: 2px solid var(--m-green);
     align-items:center;
     
   }
+  .knowMore{
+    gap:1rem;
+    border: 2px solid var(--m-green);
+    padding:2rem;
+    border-radius: 10px;
+    line-height:5;
+    background-color:var(--m-light-gray);
+    line-height:2;
+    width:80%;
+    margin-bottom:3rem;
+  }
+  @media (width< 760px) {
+    #youtube{
+      max-width:70%;
+      height:auto;
+      
+
+    }
+    .knowMore{
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  .stack{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+  }
