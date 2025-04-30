@@ -10,7 +10,7 @@ const Rules = () => {
       <h2 className="h2T">Objective </h2>
       <p>Try to beat the dealer by getting a count of cards as close to 21 as possible without going over.</p>
       <h2 className="h2T">Card Values</h2>
-      <p> Ace is valued at 11 unless that would caues a bust. If it would cause a bust, the ace is valued as a 1. Face cards are worth 10 and number cards are worth their numbers.</p>
+      <p> Ace is valued at 11 unless that would caues a bust. Bust means loss. If it would cause a bust, the ace is valued as a 1. Face cards are worth 10 and number cards are worth their numbers.</p>
       <h2 className="h2T">Betting</h2>
       <p> Betting occurs before the cards are dealed.</p>
       <h2 className="h2T">Play</h2>

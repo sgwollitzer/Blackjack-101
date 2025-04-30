@@ -24,8 +24,7 @@ const Simulator = () => {
   const [gameResult, setGameResult] = useState('');
 
   const[canDoubleDown,setCanDoubleDown]=useState(true);
-  const [canHitStand,setCanHitStand]=useState(true);
-
+const[blackJack,setBlackJack]=useState('');
 
   const getHouseCounter = (value) => {
     setHouseCounter(value);
@@ -140,6 +139,7 @@ const stand=()=>{
     setPlayerWin(oldPlayerWin => oldPlayerWin + 1);
     setGameResult("You win!");
   }
+  
   setShowHouseFaceUp(true);
   setStopGame(true);
 }
@@ -163,6 +163,7 @@ setFinalFaceUp([]);
 setHasOriginalTwoCards(false);
 setStopGame(false);
 setCanDoubleDown(true);
+setBlackJack("");
 console.log("reset game");
 try {
   let responseData = await axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
@@ -181,9 +182,14 @@ const resetHasOriginalTwoCards = () => {
 const calculateCounter=(cards)=>{
   let currCounter=0;
   let aces=0;
+  let faces=0;
   for(const card of cards){
+    if(parseInt(card.value,10)==10){
+      faces++;
+    }
       if(card.value=='JACK'||card.value=='QUEEN' || card.value=='KING'){
           currCounter+=10;
+          faces++;
       } else if(card.value=='ACE'){
           aces++;
       }else{
@@ -199,6 +205,9 @@ const calculateCounter=(cards)=>{
       currCounter+=1;
       console.log("adding 1 as ace");
     }
+  }
+  if(faces==1&&aces==1&&cards.length==2){
+    setBlackJack("BLACKJACK!!!");
   }
   return currCounter;
 
@@ -235,6 +244,7 @@ const hit=async ()=>{
 
     setStopGame(true);
   }
+  
   // const currPlayer = calculateCounter(playerCards);
   // setPlayerCounter(currPlayer);
   // console.log("this is currentttt player count",currPlayer);
@@ -328,7 +338,11 @@ useEffect(() => {
 
       </div>
       <h2 className="centeredd">Player's Cards:</h2>
+      
+      <div className="gameResultBox">
+  {blackJack && <div className="blackJack">{blackJack}</div>}</div>
       <div className="cardContainers">{showCards(playerCards)}</div>
+      
   
 </>
   );
