@@ -9,7 +9,7 @@ const History = () => {
   <div className="section2 rulesection2">
   <h2 className="h2T">Origins</h2>
   <ul>
-  <li>Blackjack originated in France and Spain under the name "Vingt-un" or "Vingt-et-un", meaning "21." It was predated by other games circling Europe that had goals of getting as close to a certain value as psosible, whether it be 15, 31, or 21.</li>
+  <li>Blackjack originated in France and Spain under the name "Vingt-un" or "Vingt-et-un", meaning "21." It was predated by other games circling Europe that had goals of getting as close to a certain value as possible, whether it be 15, 31, or 21.</li>
   <li>Around the time of WWI, "21" came to the US with a twist: a reward was given if a player had an ace of spades and a blackjack. This reward and its name caught on and the game of "21" became the game of "Blackjack" in the US. Finally, in 1931, Nevada created house-banked blackjack.</li>
   </ul>
   <h2 className="h2T">Blackjack's Most Famous Players</h2>
