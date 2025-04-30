@@ -21,7 +21,8 @@ const History = () => {
   <h2 className="h2T">
     Now
   </h2>
-  <p>Blackjack remains to be one of the most profitable games at a casino. However, casinos have measures in place to track card counting, and individuals caught card counting are often throw out of and banned from the casino.</p>
+
+  <p>Blackjack remains to be one of the most profitable games at a casino. However, casinos have measures in place to track card counting, and individuals caught card counting are often thrown out of and banned from the casino.</p>
  </div>
   {/* https://www.blackjackapprenticeship.com/the-history-of-blackjack-and-card-counting/ */}
   <div className="knowMore">

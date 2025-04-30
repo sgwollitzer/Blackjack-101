@@ -208,7 +208,9 @@ const calculateCounter=(cards)=>{
   }
   if(faces==1&&aces==1&&cards.length==2){
     setBlackJack("BLACKJACK!!!");
+
   }
+console.log("test");
   return currCounter;
 
 }
